@@ -6,8 +6,8 @@ export async function getTeamSpeakClient(): Promise<TeamSpeak> {
   if (client) return client;
   client = await TeamSpeak.connect({
     host: process.env.TS_HOST!,
-    queryport: Number(process.env.TS_QUERY_PORT),
-    serverport: Number(process.env.TS_SERVER_PORT),
+    queryport: Number(process.env.TS_QUERY_PORT ?? 10011),
+    serverport: Number(process.env.TS_SERVER_PORT ?? 9987),
     username: process.env.TS_USERNAME!,
     password: process.env.TS_PASSWORD!,
     nickname: process.env.TS_NICKNAME!,
