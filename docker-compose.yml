@@ -1,0 +1,8 @@
+services:
+  teamspeak-mcp:
+    build: .
+    ports:
+      - "${MCP_PORT:-3000}:3000"
+    env_file:
+      - .env
+    restart: unless-stopped
